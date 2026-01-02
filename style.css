@@ -707,3 +707,20 @@ body { margin:0; font-family:'Helvetica Neue',sans-serif; background:#111; color
   flex-direction: column;
   align-items: center;
 }
+/* ---------- CONTACT SIGNATURE ---------- */
+.contact-sign {
+  display: block;
+  margin-top: 64px;
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  opacity: 0.35;
+  user-select: none;
+}
+
+/* 모바일에서는 살짝 위로 */
+@media (max-width: 768px) {
+  .contact-sign {
+    margin-top: 48px;
+    font-size: 10px;
+  }
+}
