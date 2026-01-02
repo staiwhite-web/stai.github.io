@@ -31,9 +31,8 @@
 
     <!-- TRACK 1 -->
     <div class="track">
-
       <img
-        src="cover1.jpg"
+        src="cover1.JPG"
         alt="I'm Fine Cover"
         class="cover"
         onclick="openCover(this.src)"
@@ -72,9 +71,8 @@
 
     <!-- TRACK 2 -->
     <div class="track">
-
       <img
-        src="cover2.jpg"
+        src="cover2.JPG"
         alt="I'll Be Out Cover"
         class="cover"
         onclick="openCover(this.src)"
@@ -83,15 +81,144 @@
       <div class="track-info">
         <span class="badge">NEW RELEASE</span>
         <span class="date">2025.11.22</span>
-<script>
-  function videoClick(videoName) {
-    gtag('event', 'video_click', {
-      'event_category': 'engagement',
-      'event_label': videoName
-    });
-  }
-</script>
 
         <h3>
           <a href="https://open.spotify.com/track/YYYYYYYY"
              target="_blank"
+             onclick="trackClick('IllBeOut')">
+            I’ll Be Out
+          </a>
+        </h3>
+
+        <p>
+          Leaving quietly,  
+          after saying everything in my head.
+        </p>
+
+        <iframe
+          src="https://open.spotify.com/embed/track/YYYYYYYY"
+          width="100%"
+          height="152"
+          frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+
+        <button class="save-btn" onclick="spotifySave('IllBeOut')">
+          Save on Spotify
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC VIDEOS -->
+  <section class="section fade-section">
+    <h2>Music Videos</h2>
+
+    <div class="video-grid">
+
+      <a
+        href="https://www.youtube.com/watch?v=XXXXXXXX"
+        target="_blank"
+        class="video-item"
+        onclick="videoClick('ImFine_MV')"
+      >
+        <img src="mv1.JPG" alt="I'm Fine Music Video">
+        <div class="video-overlay">
+          <span>▶</span>
+          <p>I’m Fine</p>
+        </div>
+      </a>
+
+      <a
+        href="https://www.youtube.com/watch?v=YYYYYYYY"
+        target="_blank"
+        class="video-item"
+        onclick="videoClick('IllBeOut_MV')"
+      >
+        <img src="mv2.JPG" alt="I'll Be Out Music Video">
+        <div class="video-overlay">
+          <span>▶</span>
+          <p>I’ll Be Out</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CONNECT -->
+  <section class="section center fade-section">
+    <h2>Listen Everywhere</h2>
+    <div class="links">
+      <a href="https://open.spotify.com/artist/4o8r9EwrxByJIaZ3qWRvpG" target="_blank">Spotify</a>
+      <a href="https://music.apple.com/kr/artist/stai/1693977237" target="_blank">Apple Music</a>
+      <a href="https://www.youtube.com/@staiwhite" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/staiwhite/" target="_blank">Instagram</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 STAI</p>
+  </footer>
+
+  <!-- FULLSCREEN COVER OVERLAY -->
+  <div id="coverOverlay" class="overlay" onclick="closeCover()">
+    <span class="close-btn">&times;</span>
+    <img id="overlayImage" src="" alt="Cover Fullscreen" />
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    /* Fade animation */
+    const sections = document.querySelectorAll('.fade-section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
+    sections.forEach(section => observer.observe(section));
+
+    /* Track click conversion */
+    function trackClick(trackName) {
+      gtag('event', 'track_click', {
+        event_category: 'engagement',
+        event_label: trackName
+      });
+    }
+
+    /* Spotify save conversion */
+    function spotifySave(trackName) {
+      gtag('event', 'spotify_save', {
+        event_category: 'engagement',
+        event_label: trackName
+      });
+      window.open(
+        'https://open.spotify.com/artist/4o8r9EwrxByJIaZ3qWRvpG',
+        '_blank'
+      );
+    }
+
+    /* Video click conversion */
+    function videoClick(videoName) {
+      gtag('event', 'video_click', {
+        event_category: 'engagement',
+        event_label: videoName
+      });
+    }
+
+    /* Fullscreen cover */
+    function openCover(src) {
+      const overlay = document.getElementById('coverOverlay');
+      const image = document.getElementById('overlayImage');
+      image.src = src;
+      overlay.classList.add('show');
+    }
+
+    function closeCover() {
+      document.getElementById('coverOverlay').classList.remove('show');
+    }
+  </script>
+
+</body>
+</html>
