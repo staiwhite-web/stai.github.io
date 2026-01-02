@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>STAI Official</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>STAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11017984648"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,125 +13,194 @@
     gtag('js', new Date());
     gtag('config', 'AW-11017984648');
   </script>
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="navbar fade-section">
-    <ul>
-      <li><a href="#music">MUSIC</a></li>
-      <li><a href="#mv">MV</a></li>
-      <li><a href="#links">LINKS</a></li>
-      <li><a href="#goods">GOODS</a></li>
-    </ul>
-  </nav>
+<!-- NAVIGATION -->
+<nav class="nav">
+  <a href="#music">Music</a>
+  <a href="#mv">MV</a>
+  <a href="#merch">Merch</a>
+  <a href="#links">Links</a>
+</nav>
 
-  <!-- HEADER -->
-  <header class="hero fade-section">
-    <h1>STAI</h1>
-    <p class="signature">Prefer, Whatever, If you want it</p>
-  </header>
+<!-- HERO -->
+<section class="hero">
+  <p class="signature">Prefer, Whatever, If you want it</p>
+  <h1>STAI</h1>
+</section>
 
-  <!-- MUSIC SECTION -->
-  <section id="music" class="music fade-section">
-    <h2>New Release</h2>
-    <div class="album">
-      <div class="track">
-        <img src="cover1.jpg" alt="I'm fine" class="cover-art">
-        <h3>I'm fine</h3>
-        <iframe src="https://open.spotify.com/embed/track/..." width="300" height="80" frameborder="0" allow="encrypted-media"></iframe>
-        <button class="spotify-save">SAVE ON SPOTIFY</button>
-      </div>
-      <div class="track">
-        <img src="cover2.jpg" alt="Quiet Emotions" class="cover-art">
-        <h3>Quiet Emotions</h3>
-        <iframe src="https://open.spotify.com/embed/track/..." width="300" height="80" frameborder="0" allow="encrypted-media"></iframe>
-        <button class="spotify-save">SAVE ON SPOTIFY</button>
-      </div>
-    </div>
-  </section>
+<!-- MUSIC -->
+<section class="section" id="music">
+  <h2>New Releases</h2>
 
-  <!-- MV SECTION -->
-  <section id="mv" class="mv fade-section">
-    <h2>Music Video</h2>
-    <div class="mv-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/D0oATw0mrp0?rel=0" title="STAI MV" frameborder="0" allow="autoplay; encrypted-media; fullscreen"></iframe>
-    </div>
-  </section>
+  <div class="track">
+    <img src="cover1.jpg" class="cover" onclick="openCover(this.src)" />
+    <div class="info">
+      <span class="badge">NEW RELEASE</span>
+      <span class="date">2025.12.26</span>
+      <h3>I’ll be out</h3>
 
-  <!-- LINKS SECTION -->
-  <section id="links" class="links fade-section">
-    <h2 class="section-title">LINKS</h2>
-    <div class="link-buttons">
+      <iframe src="https://open.spotify.com/embed/album/1KqNPgOaqvfkUXhNG7oFGn?si=mOAB7eCPSH6fnQr9gC72FQ"
+        width="100%" height="152" frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media;">
+      </iframe>
 
-      <a href="https://open.spotify.com/artist/4o8r9EwrxByJIaZ3qWRvpG" target="_blank" class="link-btn spotify">
-        <svg class="icon-svg" viewBox="0 0 168 168">
-          <path d="M84 0a84 84 0 1084 84A84.1 84.1 0 0084 0zm38.3 120.5a5.5 5.5 0 01-7.5 1.8c-20.5-12.6-46.3-15.5-76.8-8.6a5.5 5.5 0 01-2.7-10.8c33.5-8.4 62.1-5.3 85.4 9.8a5.5 5.5 0 011.8 7.8zm10.7-22a6.7 6.7 0 01-9.1 2.2c-23.6-14.5-59.5-18.7-87-10.4a6.7 6.7 0 11-3.2-13c31.1-7.7 70-3.1 96.1 12.1a6.7 6.7 0 012.2 9.1zm1.3-21.3a8 8 0 01-10.9 2.6c-26.9-16.6-67.9-20.8-90-11.6a8 8 0 11-3.8-15.1c25.3-8.2 69.3-3.5 98.1 13.2a8 8 0 012.6 10.9z"/>
-        </svg>
-        <span class="label">LISTEN ON SPOTIFY</span>
+      <a class="save-btn"
+        href="https://open.spotify.com/track/27vKEw4ADYSvGTxmRFv4EK?si=f94cf9ebdc2b4847"
+        target="_blank"
+        onclick="gtag('event','spotify_save',{event_label:'im_fine'})">
+        Save on Spotify
       </a>
-
-      <a href="https://music.apple.com/kr/artist/stai/1693977237" target="_blank" class="link-btn apple">
-        <svg class="icon-svg" viewBox="0 0 24 24">
-          <path d="M16.365 1.43a5.7 5.7 0 00-4.012 2.06c-0.99 1.188-1.645 3.106-1.366 4.93 1.44.112 3.15-.737 4.13-1.924a5.682 5.682 0 001.248-2.99 5.683 5.683 0 00-0-.076zM12 6.25a7.5 7.5 0 100 15 7.5 7.5 0 000-15z"/>
-        </svg>
-        <span class="label">LISTEN ON APPLE</span>
-      </a>
-
-      <a href="https://www.youtube.com/@staiwhite" target="_blank" class="link-btn youtube">
-        <svg class="icon-svg" viewBox="0 0 24 24">
-          <path d="M23.498 6.186a2.998 2.998 0 00-2.112-2.12C19.62 3.5 12 3.5 12 3.5s-7.62 0-9.386.566a2.998 2.998 0 00-2.112 2.12A31.503 31.503 0 000 12a31.503 31.503 0 00.502 5.814 2.998 2.998 0 002.112 2.12C4.38 20.5 12 20.5 12 20.5s7.62 0 9.386-.566a2.998 2.998 0 002.112-2.12A31.503 31.503 0 0024 12a31.503 31.503 0 00-.502-5.814zM9.545 15.568V8.432l6.364 3.568-6.364 3.568z"/>
-        </svg>
-        <span class="label">WATCH ON YOUTUBE</span>
-      </a>
-
-      <a href="https://www.instagram.com/staiwhite/" target="_blank" class="link-btn instagram">
-        <svg class="icon-svg" viewBox="0 0 24 24">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.851s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0 1.838c-3.184 0-3.555.012-4.806.069-1.16.054-1.788.24-2.21.401-.568.224-.974.492-1.404.922-.43.43-.698.836-.922 1.404-.161.422-.347 1.05-.401 2.21-.057 1.25-.069 1.622-.069 4.806s.012 3.555.069 4.806c.054 1.16.24 1.788.401 2.21.224.568.492.974.922 1.404.43.43.836.698 1.404.922.422.161 1.05.347 2.21.401 1.25.057 1.622.069 4.806.069s3.555-.012 4.806-.069c1.16-.054 1.788-.24 2.21-.401.568-.224.974-.492 1.404-.922.43-.43.698-.836.922-1.404.161-.422.347-1.05.401-2.21.057-1.25.069-1.622.069-4.806s-.012-3.555-.069-4.806c-.054-1.16-.24-1.788-.401-2.21-.224-.568-.492-.974-.922-1.404-.43-.43-.836-.698-1.404-.922-.422-.161-1.05-.347-2.21-.401-1.25-.057-1.622-.069-4.806-.069zm0 4.838a5 5 0 100 10 5 5 0 000-10zm0 1.838a3.162 3.162 0 110 6.324 3.162 3.162 0 010-6.324zm5.406-1.844a1.162 1.162 0 11-2.324 0 1.162 1.162 0 012.324 0z"/>
-        </svg>
-        <span class="label">FOLLOW ON INSTAGRAM</span>
-      </a>
-
     </div>
-  </section>
+  </div>
 
-  <!-- GOODS SECTION -->
-  <section id="goods" class="goods fade-section">
-    <h2>GOODS</h2>
-    <div class="goods-container">
-      <!-- 예시 상품 -->
-      <div class="goods-item">
-        <img src="goods1.jpg" alt="T-shirt">
-        <p>T-shirt</p>
-        <p class="soldout">SOLD OUT</p>
-      </div>
-      <div class="goods-item">
-        <img src="goods2.jpg" alt="Cap">
-        <p>Cap</p>
-        <p><a href="https://storelink.com" target="_blank">BUY NOW</a></p>
-      </div>
+  <div class="track">
+    <img src="cover2.jpg" class="cover" onclick="openCover(this.src)" />
+    <div class="info">
+      <span class="badge">NEW RELEASE</span>
+      <span class="date">2025.06.27</span>
+      <h3>Walk with U</h3>
+
+      <iframe src="https://open.spotify.com/embed/track/6Zh5RQe0n0Ljokfz332FOM?si=103d00bfd74b424e"
+        width="100%" height="152" frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media;">
+      </iframe>
+
+      <a class="save-btn"
+        href="https://open.spotify.com/track/6Zh5RQe0n0Ljokfz332FOM?si=103d00bfd74b424e"
+        target="_blank"
+        onclick="gtag('event','spotify_save',{event_label:'walk_with_u'})">
+        Save on Spotify
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SCROLL FADE SCRIPT -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const faders = document.querySelectorAll('.fade-section');
-      const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+<!-- MV -->
+<section class="section" id="mv">
+  <h2>Music Video</h2>
 
-      const appearOnScroll = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
-          }
-        });
-      }, appearOptions);
+  <div class="mv">
+    <img src="mv1.jpg" class="mv-thumb" onclick="openMV()" />
+    <p>STAI – Walk with U (Official Lyrics Video)</p>
+  </div>
+</section>
 
-      faders.forEach(fader => { appearOnScroll.observe(fader); });
-    });
-  </script>
+<!-- MERCH -->
+<section class="section" id="merch">
+  <h2>Merch</h2>
+
+  <div class="goods-grid">
+
+    <div class="goods-item soldout">
+      <img src="goods1.jpg" />
+      <span class="soldout-badge">SOLD OUT</span>
+      <h3>STAI Logo T-Shirt</h3>
+      <p>Limited edition</p>
+    </div>
+
+    <div class="goods-item">
+      <img src="goods1.jpg" />
+      <h3>Quiet Emotions Hoodie</h3>
+      <p>Available now</p>
+      <a href="https://your-store-link.com"
+         target="_blank"
+         class="goods-btn"
+         onclick="gtag('event','merch_click',{event_label:'hoodie'})">
+        Buy Now
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!--  -->
+<section id="links" class="links fade-section">
+  <h2 class="section-title">LINKS</h2>
+
+  <div class="link-buttons">
+
+    <a href="https://open.spotify.com/artist/4o8r9EwrxByJIaZ3qWRvpG"
+       target="_blank"
+       class="link-btn spotify">
+      <!-- Spotify SVG -->
+      <svg class="icon-svg" viewBox="0 0 168 168" fill="currentColor">
+        <path d="M84 0a84 84 0 1084 84A84.1 84.1 0 0084 0zm38.3 120.5a5.5 5.5 0 01-7.5 1.8c-20.5-12.6-46.3-15.5-76.8-8.6a5.5 5.5 0 01-2.7-10.8c33.5-8.4 62.1-5.3 85.4 9.8a5.5 5.5 0 011.8 7.8zm10.7-22a6.7 6.7 0 01-9.1 2.2c-23.6-14.5-59.5-18.7-87-10.4a6.7 6.7 0 11-3.2-13c31.1-7.7 70-3.1 96.1 12.1a6.7 6.7 0 012.2 9.1zm1.3-21.3a8 8 0 01-10.9 2.6c-26.9-16.6-67.9-20.8-90-11.6a8 8 0 11-3.8-15.1c25.3-8.2 69.3-3.5 98.1 13.2a8 8 0 012.6 10.9z"/>
+      </svg>
+      <span class="label">LISTEN ON SPOTIFY</span>
+    </a>
+
+    <a href="https://music.apple.com/kr/artist/stai/1693977237"
+       target="_blank"
+       class="link-btn apple">
+      <!-- Apple Music SVG -->
+      <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M16.365 1.43a5.7 5.7 0 00-4.012 2.06c-0.99 1.188-1.645 3.106-1.366 4.93 1.44.112 3.15-.737 4.13-1.924a5.682 5.682 0 001.248-2.99 5.683 5.683 0 00-0-.076zM12 6.25a7.5 7.5 0 100 15 7.5 7.5 0 000-15z"/>
+      </svg>
+      <span class="label">LISTEN ON APPLE</span>
+    </a>
+
+    <a href="https://www.youtube.com/@staiwhite"
+       target="_blank"
+       class="link-btn youtube">
+      <!-- YouTube SVG -->
+      <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M23.498 6.186a2.998 2.998 0 00-2.112-2.12C19.62 3.5 12 3.5 12 3.5s-7.62 0-9.386.566a2.998 2.998 0 00-2.112 2.12A31.503 31.503 0 000 12a31.503 31.503 0 00.502 5.814 2.998 2.998 0 002.112 2.12C4.38 20.5 12 20.5 12 20.5s7.62 0 9.386-.566a2.998 2.998 0 002.112-2.12A31.503 31.503 0 0024 12a31.503 31.503 0 00-.502-5.814zM9.545 15.568V8.432l6.364 3.568-6.364 3.568z"/>
+      </svg>
+      <span class="label">WATCH ON YOUTUBE</span>
+    </a>
+
+    <a href="https://www.instagram.com/staiwhite/"
+       target="_blank"
+       class="link-btn instagram">
+      <!-- Instagram SVG -->
+      <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.851s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0 1.838c-3.184 0-3.555.012-4.806.069-1.16.054-1.788.24-2.21.401-.568.224-.974.492-1.404.922-.43.43-.698.836-.922 1.404-.161.422-.347 1.05-.401 2.21-.057 1.25-.069 1.622-.069 4.806s.012 3.555.069 4.806c.054 1.16.24 1.788.401 2.21.224.568.492.974.922 1.404.43.43.836.698 1.404.922.422.161 1.05.347 2.21.401 1.25.057 1.622.069 4.806.069s3.555-.012 4.806-.069c1.16-.054 1.788-.24 2.21-.401.568-.224.974-.492 1.404-.922.43-.43.698-.836.922-1.404.161-.422.347-1.05.401-2.21.057-1.25.069-1.622.069-4.806s-.012-3.555-.069-4.806c-.054-1.16-.24-1.788-.401-2.21-.224-.568-.492-.974-.922-1.404-.43-.43-.836-.698-1.404-.922-.422-.161-1.05-.347-2.21-.401-1.25-.057-1.622-.069-4.806-.069zm0 4.838a5 5 0 100 10 5 5 0 000-10zm0 1.838a3.162 3.162 0 110 6.324 3.162 3.162 0 010-6.324zm5.406-1.844a1.162 1.162 0 11-2.324 0 1.162 1.162 0 012.324 0z"/>
+      </svg>
+      <span class="label">FOLLOW ON INSTAGRAM</span>
+    </a>
+
+  </div>
+</section>
+
+
+
+
+<!-- FULLSCREEN IMAGE -->
+<div id="fullscreen" onclick="closeCover()">
+  <img id="fullscreen-img" />
+</div>
+
+<!-- FULLSCREEN MV -->
+<div id="mv-fullscreen" onclick="closeMV()">
+  <iframe id="mv-frame"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<script>
+  function openCover(src) {
+    document.getElementById('fullscreen-img').src = src;
+    document.getElementById('fullscreen').style.display = 'flex';
+  }
+  function closeCover() {
+    document.getElementById('fullscreen').style.display = 'none';
+  }
+  function openMV() {
+    document.getElementById('mv-frame').src =
+      "https://www.youtube.com/embed/D0oATw0mrp0?autoplay=1";
+    document.getElementById('mv-fullscreen').style.display = 'flex';
+  }
+  function closeMV() {
+    document.getElementById('mv-frame').src = "";
+    document.getElementById('mv-fullscreen').style.display = 'none';
+  }
+</script>
 
 </body>
 </html>
