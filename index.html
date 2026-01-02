@@ -34,8 +34,8 @@
 </section>
 
 <!-- MUSIC -->
-<section class="section" id="music">
-  <h2>New Releases</h2>
+<section id="music" class="fade-section">
+  <h2>Music</h2>
 
   <div class="track">
     <img src="cover1.jpg" class="cover" onclick="openCover(this.src)" />
@@ -81,7 +81,7 @@
 </section>
 
 <!-- MV -->
-<section class="section" id="mv">
+<section id="mv" class="fade-section">
   <h2>Music Video</h2>
 
   <div class="mv">
@@ -121,8 +121,8 @@
 <!--  -->
 <section id="links" class="links fade-section">
   <h2 class="section-title">LINKS</h2>
-
   <div class="link-buttons">
+
 
     <a href="https://open.spotify.com/artist/4o8r9EwrxByJIaZ3qWRvpG"
        target="_blank"
@@ -200,6 +200,30 @@
     document.getElementById('mv-frame').src = "";
     document.getElementById('mv-fullscreen').style.display = 'none';
   }
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const faders = document.querySelectorAll('.fade-section');
+
+  const appearOptions = {
+    threshold: 0.1, // 화면에 10% 보여지면
+    rootMargin: "0px 0px -50px 0px" // 약간 미리 나타나게
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible'); // 사라지게 하려면 이 줄 유지, 고정하려면 삭제
+      }
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+});
 </script>
 
 </body>
