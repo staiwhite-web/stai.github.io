@@ -724,3 +724,7 @@ body { margin:0; font-family:'Helvetica Neue',sans-serif; background:#111; color
     font-size: 10px;
   }
 }
+/* LINKS 아래 여백 추가 */
+#links {
+  margin-bottom: 160px;
+}
