@@ -469,3 +469,73 @@ h2 {
     padding: 22px 20px;
   }
 }
+/* 기본 상태: 숨김 + 약간 아래에서 시작 */
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 활성 상태: 화면 안으로 들어올 때 */
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+body { margin:0; font-family:'Helvetica Neue',sans-serif; background:#111; color:#fff; }
+
+/* =====================
+   FADE EFFECT
+===================== */
+.fade-section { opacity:0; transform:translateY(40px); transition:opacity 0.8s ease-out, transform 0.8s ease-out; }
+.fade-section.visible { opacity:1; transform:translateY(0); }
+
+/* NAVBAR */
+.navbar { position:fixed; top:0; width:100%; background:rgba(0,0,0,0.5); padding:12px 24px; z-index:100; }
+.navbar ul { display:flex; justify-content:center; gap:32px; list-style:none; margin:0; padding:0; }
+.navbar a { color:#fff; text-decoration:none; font-weight:600; transition:color 0.3s; }
+.navbar a:hover { color:#1DB954; }
+
+/* HERO */
+.hero { text-align:center; padding:180px 20px 80px; }
+.hero h1 { font-size:72px; margin:0; }
+.hero .signature { font-family:'Pacifico', cursive; font-size:24px; opacity:0; animation:signatureFade 2s ease forwards 0.5s; }
+@keyframes signatureFade { to { opacity:1; } }
+
+/* MUSIC */
+.album { display:flex; justify-content:center; flex-wrap:wrap; gap:60px; }
+.track { text-align:center; }
+.cover-art { width:240px; height:auto; border-radius:16px; cursor:pointer; transition:transform 0.4s; }
+.cover-art:hover { transform:scale(1.05); }
+.spotify-save { margin-top:8px; padding:6px 12px; border:none; border-radius:8px; background:#1DB954; color:#fff; cursor:pointer; transition:all 0.3s; }
+.spotify-save:hover { background:#1ed760; }
+
+/* MV */
+.mv-container { display:flex; justify-content:center; margin-top:40px; }
+
+/* LINKS */
+.link-buttons { display:grid; grid-template-columns:repeat(2,1fr); gap:36px; max-width:880px; margin:60px auto 0; }
+.link-btn { position:relative; padding:28px 24px; border-radius:20px; display:flex; flex-direction:row; align-items:center; gap:14px;
+  background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.35); color:#fff; text-decoration:none; transition:all 0.35s; overflow:hidden; }
+.link-btn::after { content:""; position:absolute; inset:0; border-radius:20px; box-shadow:inset 0 0 0 1px rgba(255,255,255,0.1); pointer-events:none; }
+.link-btn:hover { transform:translateY(-4px); border-color:rgba(255,255,255,0.7); }
+.icon-svg { width:36px; height:36px; flex-shrink:0; transition:transform 0.3s; fill:currentColor; }
+.link-btn:hover .icon-svg { animation:iconPulse 0.6s ease-in-out 1; }
+@keyframes iconPulse {0%{transform:scale(1);}25%{transform:scale(1.2);}50%{transform:scale(0.9);}75%{transform:scale(1.15);}100%{transform:scale(1);}}
+.link-btn .label { font-size:13px; letter-spacing:0.15em; opacity:0.85; font-weight:500; }
+.spotify:hover { color:#1DB954; box-shadow:0 12px 40px rgba(30,215,96,0.35); }
+.apple:hover { color:#FA233B; box-shadow:0 12px 40px rgba(255,0,0,0.25); }
+.youtube:hover { color:#FF0000; box-shadow:0 12px 40px rgba(255,0,0,0.35); }
+.instagram:hover { color:#E1306C; box-shadow:0 12px 40px rgba(225,48,108,0.35); }
+
+/* GOODS */
+.goods-container { display:flex; justify-content:center; flex-wrap:wrap; gap:32px; margin-top:40px; }
+.goods-item { text-align:center; width:180px; }
+.goods-item img { width:100%; border-radius:12px; }
+.goods-item .soldout { color:red; font-weight:700; }
+
+/* MOBILE */
+@media (max-width:768px){
+  .album{flex-direction:column; align-items:center;}
+  .link-buttons{grid-template-columns:1fr; gap:24px;}
+  .link-btn{padding:20px 18px;}
+  .icon-svg{
