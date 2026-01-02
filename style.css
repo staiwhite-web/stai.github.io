@@ -307,3 +307,56 @@ footer {
   cursor: pointer;
   border-radius: 6px;
 }
+/* SLIDER */
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.slide {
+  min-width: 100%;
+}
+
+/* SLIDE BUTTONS */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 28px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slide-btn.left {
+  left: 10px;
+}
+
+.slide-btn.right {
+  right: 10px;
+}
+
+.slide-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .track {
+    flex-direction: column;
+  }
+
+  .slide-btn {
+    display: none;
+  }
+}
