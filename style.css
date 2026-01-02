@@ -359,12 +359,12 @@ h2 {
   box-shadow: 0 8px 30px rgba(225,48,108,0.35);
 }
 /* =====================
-   LINKS SECTION — SVG + SPACING
+   LINKS SECTION — SVG + SPACING + ANIMATION
 ===================== */
 .link-buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px; /* 버튼 간격 더 넓게 */
+  gap: 36px; /* 버튼 간격 더 넓게 */
   max-width: 880px;
   margin: 60px auto 0;
 }
@@ -410,9 +410,23 @@ h2 {
 
 /* SVG 아이콘 */
 .icon-svg {
-  width: 36px;
+  width: 36px;  /* PC용 */
   height: 36px;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+/* hover 시 마이크로 애니메이션 */
+.link-btn:hover .icon-svg {
+  animation: iconPulse 0.6s ease-in-out 1;
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(0.9); }
+  75% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
 
 /* 텍스트 라벨 */
@@ -424,21 +438,10 @@ h2 {
 }
 
 /* hover glow */
-.spotify:hover {
-  box-shadow: 0 12px 40px rgba(30,215,96,0.35);
-}
-
-.apple:hover {
-  box-shadow: 0 12px 40px rgba(255,255,255,0.25);
-}
-
-.youtube:hover {
-  box-shadow: 0 12px 40px rgba(255,0,0,0.35);
-}
-
-.instagram:hover {
-  box-shadow: 0 12px 40px rgba(225,48,108,0.35);
-}
+.spotify:hover { box-shadow: 0 12px 40px rgba(30,215,96,0.35); }
+.apple:hover   { box-shadow: 0 12px 40px rgba(255,255,255,0.25); }
+.youtube:hover { box-shadow: 0 12px 40px rgba(255,0,0,0.35); }
+.instagram:hover { box-shadow: 0 12px 40px rgba(225,48,108,0.35); }
 
 /* =====================
    MOBILE
@@ -446,17 +449,16 @@ h2 {
 @media (max-width: 768px) {
   .link-buttons {
     grid-template-columns: 1fr;
-    gap: 24px; /* 모바일 간격 조금 줄임 */
+    gap: 24px;
   }
 
   .link-btn {
-    flex-direction: row;
     padding: 20px 18px;
   }
 
   .icon-svg {
-    width: 32px;
-    height: 32px;
+    width: 24px;  /* 모바일에서 줄임 */
+    height: 24px;
   }
 
   .link-btn .label {
@@ -464,16 +466,6 @@ h2 {
   }
 }
 
-
-/* =====================
-   MOBILE
-===================== */
-@media (max-width: 768px) {
-  .link-buttons {
-    grid-template-columns: 1fr;
-  }
-
-  .link-btn {
     padding: 22px 20px;
   }
 }
