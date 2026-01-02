@@ -539,3 +539,35 @@ body { margin:0; font-family:'Helvetica Neue',sans-serif; background:#111; color
   .link-buttons{grid-template-columns:1fr; gap:24px;}
   .link-btn{padding:20px 18px;}
   .icon-svg{
+/* MERCH 중앙 정렬 보정 */
+.merch-grid {
+  justify-content: center; /* ⭐ 핵심 */
+}
+
+.merch-item {
+  margin: 0 auto;
+  text-align: center;
+}
+/* LINKS 버튼 중앙 정렬 보정 */
+.links {
+  display: flex;
+  justify-content: center;
+}
+
+.links .link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ⭐ 핵심 */
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .links .link-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .merch-grid {
+    grid-template-columns: 1fr;
+  }
+}
