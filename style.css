@@ -1,15 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
-
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background: #000;
+html, body {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  background: #0b0b0b;
   color: #fff;
-  font-family: Arial, sans-serif;
 }
 
 /* HERO */
@@ -19,76 +21,102 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.signature {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  opacity: 0;
-  animation: fadeIn 2s ease forwards;
+  text-align: center;
 }
 
 .hero h1 {
   font-size: 64px;
-  margin-top: 12px;
-  opacity: 0;
-  animation: fadeIn 2s ease forwards;
-  animation-delay: 0.5s;
+  letter-spacing: 4px;
 }
 
-@keyframes fadeIn {
-  to { opacity: 1; }
+.hero p {
+  margin-top: 12px;
+  opacity: 0.6;
 }
 
 /* SECTION */
 .section {
-  padding: 80px 20px;
-  max-width: 1100px;
-  margin: auto;
+  padding: 120px 8%;
+}
+
+.section.center {
+  text-align: center;
 }
 
 h2 {
-  text-align: center;
-  margin-bottom: 60px;
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+/* FADE */
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.fade-section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* TRACK */
 .track {
   display: flex;
   gap: 40px;
-  align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
 }
 
 .cover {
-  width: 320px;
+  width: 280px;
   cursor: pointer;
+  transition: transform 0.4s ease;
 }
 
-.info {
-  flex: 1;
+.cover:hover {
+  transform: scale(1.04);
+}
+
+.track-info {
+  max-width: 520px;
 }
 
 .badge {
-  background: #fff;
-  color: #000;
-  padding: 4px 10px;
   font-size: 12px;
+  border: 1px solid #fff;
+  padding: 4px 10px;
+  margin-right: 10px;
 }
 
 .date {
-  display: block;
   font-size: 12px;
-  margin: 6px 0 20px;
+  opacity: 0.5;
 }
 
-.save-btn {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 10px 20px;
-  border: 1px solid #fff;
+.track-info h3 {
+  margin: 16px 0 10px;
+  font-size: 22px;
+}
+
+.track-info a {
   color: #fff;
   text-decoration: none;
+}
+
+.track-info p {
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+
+/* SPOTIFY SAVE */
+.save-btn {
+  margin-top: 16px;
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .save-btn:hover {
@@ -96,53 +124,141 @@ h2 {
   color: #000;
 }
 
-/* MV */
-.mv {
-  text-align: center;
+/* VIDEO */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
 
-.mv-thumb {
-  width: 480px;
+.video-item {
+  position: relative;
   cursor: pointer;
 }
 
-.mv-title {
-  margin-top: 16px;
+.video-item img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.video-item:hover .video-overlay {
+  opacity: 1;
+}
+
+.video-overlay span {
+  font-size: 48px;
+}
+
+.video-overlay p {
+  margin-top: 10px;
+}
+
+/* LINKS */
+.links a {
+  margin: 10px 16px;
+  color: #fff;
+  text-decoration: none;
   opacity: 0.7;
 }
 
-/* FULLSCREEN IMAGE */
-#fullscreen,
-#mv-fullscreen {
-  display: none;
+.links a:hover {
+  opacity: 1;
+}
+
+/* FOOTER */
+footer {
+  padding: 40px;
+  text-align: center;
+  opacity: 0.4;
+}
+
+/* FULLSCREEN OVERLAY */
+.overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.95);
+  display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+  z-index: 999;
 }
 
-#fullscreen img {
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay img {
   max-width: 90%;
   max-height: 90%;
+  border-radius: 12px;
 }
 
-/* FULLSCREEN MV */
-#mv-fullscreen iframe {
+/* VIDEO FULLSCREEN */
+#videoOverlay iframe {
   width: 90%;
   height: 90%;
+  max-width: 1200px;
+  border-radius: 16px;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .track {
-    flex-direction: column;
-    text-align: center;
-  }
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 36px;
+  cursor: pointer;
+  z-index: 1000;
+}
 
-  .cover,
-  .mv-thumb {
-    width: 260px;
-  }
+/* SPOTIFY CTA */
+.spotify-cta {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(0,0,0,0.85);
+  border: 1px solid #fff;
+  padding: 16px 20px;
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+  z-index: 1000;
+}
+
+.spotify-cta.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.spotify-cta p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.spotify-cta button {
+  background: #1db954;
+  border: none;
+  color: #000;
+  padding: 8px 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
 }
