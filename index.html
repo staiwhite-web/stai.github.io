@@ -32,11 +32,9 @@
   <!-- TRACK 1 -->
   <div class="track">
     <img src="cover1.jpg" class="cover" onclick="openCover(this.src)" />
-
     <div class="info">
       <span class="badge">NEW RELEASE</span>
       <span class="date">2026.01.05</span>
-
       <h3>I’m Fine</h3>
       <p>Pretending to be okay, even when everything feels empty.</p>
 
@@ -58,11 +56,9 @@
   <!-- TRACK 2 -->
   <div class="track">
     <img src="cover2.jpg" class="cover" onclick="openCover(this.src)" />
-
     <div class="info">
       <span class="badge">NEW RELEASE</span>
       <span class="date">2025.11.22</span>
-
       <h3>I’ll Be Out</h3>
       <p>Leaving quietly, after saying everything in my head.</p>
 
@@ -82,9 +78,30 @@
   </div>
 </section>
 
+<!-- MUSIC VIDEO -->
+<section class="section">
+  <h2>Music Video</h2>
+
+  <div class="mv">
+    <img src="cover1.jpg" class="mv-thumb" onclick="openMV()" />
+    <p class="mv-title">STAI – I’m Fine (Official MV)</p>
+  </div>
+</section>
+
 <!-- FULLSCREEN COVER -->
 <div id="fullscreen" onclick="closeCover()">
   <img id="fullscreen-img" />
+</div>
+
+<!-- FULLSCREEN MV -->
+<div id="mv-fullscreen" onclick="closeMV()">
+  <iframe
+    id="mv-frame"
+    src=""
+    frameborder="0"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
 </div>
 
 <script>
@@ -95,6 +112,17 @@
 
   function closeCover() {
     document.getElementById('fullscreen').style.display = 'none';
+  }
+
+  function openMV() {
+    document.getElementById('mv-frame').src =
+      "https://www.youtube.com/embed/D0oATw0mrp0?autoplay=1";
+    document.getElementById('mv-fullscreen').style.display = 'flex';
+  }
+
+  function closeMV() {
+    document.getElementById('mv-frame').src = "";
+    document.getElementById('mv-fullscreen').style.display = 'none';
   }
 </script>
 
