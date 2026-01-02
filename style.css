@@ -605,3 +605,34 @@ body { margin:0; font-family:'Helvetica Neue',sans-serif; background:#111; color
     grid-template-columns: 1fr;
   }
 }
+/* ---------- CONTACT ---------- */
+.contact {
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 22px;
+  letter-spacing: 0.25em;
+  margin-bottom: 12px;
+}
+
+.contact p {
+  font-size: 13px;
+  opacity: 0.6;
+  margin-bottom: 28px;
+}
+
+.contact-mail {
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  color: inherit;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  transition: opacity 0.3s ease;
+}
+
+.contact-mail:hover {
+  opacity: 0.6;
+}
