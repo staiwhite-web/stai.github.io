@@ -32,38 +32,85 @@
 
   <!-- FEATURED TRACKS -->
   <section class="section fade-section">
-    <h2>New Releases</h2>
+  <h2>New Releases</h2>
 
-    <!-- TRACK 1 -->
-    <div class="track">
-      <img src="cover1.jpg" class="cover" onclick="openCover(this.src)" />
+  <div class="slider">
 
-      <div class="track-info">
-        <span class="badge">NEW RELEASE</span>
-        <span class="date">2026.01.05</span>
+    <button class="slide-btn left" onclick="slide(-1)">‹</button>
 
-        <h3>
-          <a href="https://open.spotify.com/track/XXXXXXXX"
-             target="_blank"
-             onclick="trackClick('ImFine')">
-            I’m Fine
-          </a>
-        </h3>
+    <div class="slides" id="slides">
 
-        <p>Pretending to be okay, even when everything feels empty.</p>
+      <!-- TRACK 1 -->
+      <div class="slide">
+        <div class="track">
+          <img src="cover1.jpg" class="cover" onclick="openCover(this.src)" />
 
-        <iframe
-          src="https://open.spotify.com/embed/track/XXXXXXXX"
-          width="100%" height="152" frameborder="0"
-          allow="autoplay; clipboard-write; encrypted-media;">
-        </iframe>
+          <div class="track-info">
+            <span class="badge">NEW RELEASE</span>
+            <span class="date">2026.01.05</span>
 
-        <button class="save-btn" onclick="spotifySave('ImFine')">
-          Save on Spotify
-        </button>
+            <h3>
+              <a href="https://open.spotify.com/track/XXXXXXXX"
+                 target="_blank"
+                 onclick="trackClick('ImFine')">
+                I’m Fine
+              </a>
+            </h3>
+
+            <p>Pretending to be okay, even when everything feels empty.</p>
+
+            <iframe
+              src="https://open.spotify.com/embed/track/XXXXXXXX"
+              width="100%" height="152" frameborder="0"
+              allow="autoplay; clipboard-write; encrypted-media;">
+            </iframe>
+
+            <button class="save-btn" onclick="spotifySave('ImFine')">
+              Save on Spotify
+            </button>
+          </div>
+        </div>
       </div>
+
+      <!-- TRACK 2 -->
+      <div class="slide">
+        <div class="track">
+          <img src="cover2.jpg" class="cover" onclick="openCover(this.src)" />
+
+          <div class="track-info">
+            <span class="badge">NEW RELEASE</span>
+            <span class="date">2025.11.22</span>
+
+            <h3>
+              <a href="https://open.spotify.com/track/YYYYYYYY"
+                 target="_blank"
+                 onclick="trackClick('IllBeOut')">
+                I’ll Be Out
+              </a>
+            </h3>
+
+            <p>Leaving quietly, after saying everything in my head.</p>
+
+            <iframe
+              src="https://open.spotify.com/embed/track/YYYYYYYY"
+              width="100%" height="152" frameborder="0"
+              allow="autoplay; clipboard-write; encrypted-media;">
+            </iframe>
+
+            <button class="save-btn" onclick="spotifySave('IllBeOut')">
+              Save on Spotify
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
+
+    <button class="slide-btn right" onclick="slide(1)">›</button>
+
+  </div>
+</section>
+
 
   <!-- MUSIC VIDEOS -->
   <section class="section fade-section">
