@@ -696,3 +696,14 @@ body { margin:0; font-family:'Helvetica Neue',sans-serif; background:#111; color
     padding-bottom: 200px;
   }
 }
+/* CONTACT 텍스트 + 이메일 완전 중앙 정렬 */
+#contact,
+#contact * {
+  text-align: center;
+}
+
+.contact-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
