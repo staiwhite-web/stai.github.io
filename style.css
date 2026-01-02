@@ -1,122 +1,130 @@
-/* RESET */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  width: 100%;
-  height: auto;
-  overflow-x: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  background: #0b0b0b;
+body {
+  background: #000;
   color: #fff;
+  font-family: Arial, sans-serif;
 }
 
-/* HERO */
+/* =====================
+   NAVIGATION
+===================== */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  background: rgba(0,0,0,0.6);
+  z-index: 10;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.nav a:hover {
+  opacity: 1;
+}
+
+/* =====================
+   HERO
+===================== */
 .hero {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
+}
+
+.signature {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
 }
 
 .hero h1 {
   font-size: 64px;
-  letter-spacing: 4px;
-}
-
-.hero p {
   margin-top: 12px;
-  opacity: 0.6;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 0.5s;
 }
 
-/* SECTION */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* =====================
+   SECTION
+===================== */
 .section {
-  padding: 120px 8%;
-}
-
-.section.center {
-  text-align: center;
+  padding: 120px 20px 80px;
+  max-width: 1100px;
+  margin: auto;
 }
 
 h2 {
-  font-size: 28px;
-  margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
-/* FADE */
-.fade-section {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease;
-}
-
-.fade-section.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* TRACK */
+/* =====================
+   TRACK (MUSIC)
+===================== */
 .track {
   display: flex;
   gap: 40px;
-  margin-bottom: 100px;
+  align-items: center;
+  margin-bottom: 80px;
 }
 
 .cover {
-  width: 280px;
+  width: 320px;
+  aspect-ratio: 1 / 1;   /* 🔥 비율 고정 */
+  object-fit: cover;     /* 🔥 늘어짐 방지 */
   cursor: pointer;
-  transition: transform 0.4s ease;
 }
 
-.cover:hover {
-  transform: scale(1.04);
-}
-
-.track-info {
-  max-width: 520px;
+.info {
+  flex: 1;
 }
 
 .badge {
-  font-size: 12px;
-  border: 1px solid #fff;
+  background: #fff;
+  color: #000;
   padding: 4px 10px;
-  margin-right: 10px;
+  font-size: 12px;
 }
 
 .date {
+  display: block;
   font-size: 12px;
-  opacity: 0.5;
+  margin: 6px 0 20px;
+  opacity: 0.8;
 }
 
-.track-info h3 {
-  margin: 16px 0 10px;
-  font-size: 22px;
-}
-
-.track-info a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.track-info p {
-  opacity: 0.7;
-  margin-bottom: 16px;
-}
-
-/* SPOTIFY SAVE */
 .save-btn {
-  margin-top: 16px;
-  padding: 10px 18px;
-  background: transparent;
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 20px;
   border: 1px solid #fff;
   color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
+  text-decoration: none;
+  font-size: 14px;
 }
 
 .save-btn:hover {
@@ -124,189 +132,26 @@ h2 {
   color: #000;
 }
 
-/* VIDEO */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+/* =====================
+   MUSIC VIDEO
+===================== */
+.mv {
+  text-align: center;
 }
 
-.video-item {
-  position: relative;
+.mv-thumb {
+  width: 480px;
   cursor: pointer;
 }
 
-.video-item img {
-  width: 100%;
-  border-radius: 12px;
-}
-
-.video-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.video-item:hover .video-overlay {
-  opacity: 1;
-}
-
-.video-overlay span {
-  font-size: 48px;
-}
-
-.video-overlay p {
-  margin-top: 10px;
-}
-
-/* LINKS */
-.links a {
-  margin: 10px 16px;
-  color: #fff;
-  text-decoration: none;
+.mv p {
+  margin-top: 16px;
   opacity: 0.7;
 }
 
-.links a:hover {
-  opacity: 1;
-}
-
-/* FOOTER */
-footer {
-  padding: 40px;
-  text-align: center;
-  opacity: 0.4;
-}
-
-/* FULLSCREEN OVERLAY */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.95);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.4s;
-  z-index: 999;
-}
-
-.overlay.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.overlay img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 12px;
-}
-
-/* VIDEO FULLSCREEN */
-#videoOverlay iframe {
-  width: 90%;
-  height: 90%;
-  max-width: 1200px;
-  border-radius: 16px;
-}
-
-/* CLOSE BUTTON */
-.close-btn {
-  position: absolute;
-  top: 24px;
-  right: 32px;
-  font-size: 36px;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-/* SPOTIFY CTA */
-.spotify-cta {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: rgba(0,0,0,0.85);
-  border: 1px solid #fff;
-  padding: 16px 20px;
-  border-radius: 12px;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.4s;
-  z-index: 1000;
-}
-
-.spotify-cta.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.spotify-cta p {
-  font-size: 14px;
-  margin-bottom: 10px;
-  opacity: 0.8;
-}
-
-.spotify-cta button {
-  background: #1db954;
-  border: none;
-  color: #000;
-  padding: 8px 14px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 6px;
-}
-/* SIGNATURE TEXT */
-.signature {
-  font-family: 'Brush Script MT', 'Segoe Script', 'Apple Chancery', cursive;
-  font-size: 22px;
-  letter-spacing: 1px;
-  opacity: 0;
-  transform: translateY(10px);
-  animation: signatureFade 2.2s ease forwards;
-  animation-delay: 0.4s;
-  margin-bottom: 20px;
-}
-
-/* HERO TEXT FADE */
-.fade-title {
-  opacity: 0;
-  animation: titleFade 1.6s ease forwards;
-  animation-delay: 1.2s;
-}
-
-.fade-sub {
-  opacity: 0;
-  animation: subFade 1.6s ease forwards;
-  animation-delay: 1.8s;
-}
-
-/* KEYFRAMES */
-@keyframes signatureFade {
-  to {
-    opacity: 0.7;
-    transform: translateY(0);
-  }
-}
-
-@keyframes titleFade {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes subFade {
-  to {
-    opacity: 0.6;
-  }
-}
-/* GOODS */
+/* =====================
+   MERCH
+===================== */
 .goods-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -315,6 +160,7 @@ footer {
 
 .goods-item {
   text-align: center;
+  position: relative;
 }
 
 .goods-item img {
@@ -322,19 +168,24 @@ footer {
   max-width: 300px;
 }
 
-.goods-item h3 {
-  margin-top: 16px;
-  font-size: 16px;
+.soldout img {
+  opacity: 0.4;
 }
 
-.goods-item p {
-  font-size: 13px;
-  opacity: 0.7;
-  margin: 6px 0 14px;
+.soldout-badge {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  border: 1px solid #fff;
+  padding: 6px 12px;
+  font-size: 12px;
 }
 
 .goods-btn {
   display: inline-block;
+  margin-top: 12px;
   padding: 10px 18px;
   border: 1px solid #fff;
   color: #fff;
@@ -345,4 +196,69 @@ footer {
 .goods-btn:hover {
   background: #fff;
   color: #000;
+}
+
+/* =====================
+   LINKS
+===================== */
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.links a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.links a:hover {
+  opacity: 1;
+}
+
+/* =====================
+   FULLSCREEN (IMAGE & MV)
+===================== */
+#fullscreen,
+#mv-fullscreen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+#fullscreen img,
+#mv-fullscreen iframe {
+  width: 90%;
+  height: 90%;
+}
+
+/* =====================
+   MOBILE
+===================== */
+@media (max-width: 768px) {
+
+  .track {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cover {
+    width: 260px;
+    aspect-ratio: 1 / 1;   /* 🔥 모바일에서도 유지 */
+    object-fit: cover;
+  }
+
+  .mv-thumb {
+    width: 260px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
 }
