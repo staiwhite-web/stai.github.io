@@ -31,7 +31,7 @@
 
     <!-- TRACK 1 -->
     <div class="track">
-      <img src="cover1.JPG" class="cover" onclick="openCover(this.src)" />
+      <img src="cover1.jpg" class="cover" onclick="openCover(this.src)" />
 
       <div class="track-info">
         <span class="badge">NEW RELEASE</span>
@@ -58,60 +58,20 @@
         </button>
       </div>
     </div>
-
-    <!-- TRACK 2 -->
-    <div class="track">
-      <img src="cover2.JPG" class="cover" onclick="openCover(this.src)" />
-
-      <div class="track-info">
-        <span class="badge">NEW RELEASE</span>
-        <span class="date">2025.11.22</span>
-
-        <h3>
-          <a href="https://open.spotify.com/track/YYYYYYYY"
-             target="_blank"
-             onclick="trackClick('IllBeOut')">
-            I’ll Be Out
-          </a>
-        </h3>
-
-        <p>Leaving quietly, after saying everything in my head.</p>
-
-        <iframe
-          src="https://open.spotify.com/embed/track/YYYYYYYY"
-          width="100%" height="152" frameborder="0"
-          allow="autoplay; clipboard-write; encrypted-media;">
-        </iframe>
-
-        <button class="save-btn" onclick="spotifySave('IllBeOut')">
-          Save on Spotify
-        </button>
-      </div>
-    </div>
   </section>
 
   <!-- MUSIC VIDEOS -->
   <section class="section fade-section">
-    <h2>Music Videos</h2>
+    <h2>Music Video</h2>
 
     <div class="video-grid">
-
-      <div class="video-item" onclick="openVideo('XXXXXXXX','ImFine_MV')">
-        <img src="mv1.JPG">
+      <div class="video-item" onclick="openVideo('D0oATw0mrp0','ImFine_MV')">
+        <img src="mv1.jpg">
         <div class="video-overlay">
           <span>▶</span>
           <p>I’m Fine</p>
         </div>
       </div>
-
-      <div class="video-item" onclick="openVideo('YYYYYYYY','IllBeOut_MV')">
-        <img src="mv2.JPG">
-        <div class="video-overlay">
-          <span>▶</span>
-          <p>I’ll Be Out</p>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -139,47 +99,80 @@
   <!-- FULLSCREEN VIDEO -->
   <div id="videoOverlay" class="overlay">
     <span class="close-btn" onclick="closeVideo()">&times;</span>
-    <iframe id="videoFrame" frameborder="0"
+    <iframe id="videoFrame"
+      frameborder="0"
       allow="autoplay; fullscreen; encrypted-media">
     </iframe>
   </div>
 
+  <!-- SPOTIFY CTA -->
+  <div id="spotifyCTA" class="spotify-cta">
+    <p>Like the song?</p>
+    <button onclick="spotifySave('ImFine_from_MV')">
+      Save on Spotify
+    </button>
+  </div>
+
   <!-- SCRIPT -->
   <script>
-    /* Fade */
+    /* Fade animation */
     const sections = document.querySelectorAll('.fade-section');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => e.isIntersecting && e.target.classList.add('show'));
     }, { threshold: 0.15 });
     sections.forEach(s => observer.observe(s));
 
-    /* Conversions */
+    /* Google events */
     function trackClick(name){
       gtag('event','track_click',{event_category:'engagement',event_label:name});
     }
+
     function spotifySave(name){
       gtag('event','spotify_save',{event_category:'engagement',event_label:name});
-      window.open('https://open.spotify.com/artist/4o8r9EwrxByJIaZ3qWRvpG','_blank');
+      window.open(
+        'https://open.spotify.com/artist/4o8r9EwrxByJIaZ3qWRvpG',
+        '_blank'
+      );
     }
-    function openVideo(id,name){
-      gtag('event','video_click',{event_category:'engagement',event_label:name});
-      const overlay=document.getElementById('videoOverlay');
-      const frame=document.getElementById('videoFrame');
-      frame.src=`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
-      overlay.classList.add('show');
-    }
-    function closeVideo(){
-      const overlay=document.getElementById('videoOverlay');
-      const frame=document.getElementById('videoFrame');
-      frame.src='';
-      overlay.classList.remove('show');
-    }
+
+    /* Cover fullscreen */
     function openCover(src){
-      document.getElementById('overlayImage').src=src;
+      document.getElementById('overlayImage').src = src;
       document.getElementById('coverOverlay').classList.add('show');
     }
     function closeCover(){
       document.getElementById('coverOverlay').classList.remove('show');
+    }
+
+    /* Video fullscreen + CTA */
+    let ctaTimer;
+
+    function openVideo(id, name){
+      gtag('event','video_click',{event_category:'engagement',event_label:name});
+
+      const overlay = document.getElementById('videoOverlay');
+      const frame = document.getElementById('videoFrame');
+      const cta = document.getElementById('spotifyCTA');
+
+      cta.classList.remove('show');
+      frame.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+      overlay.classList.add('show');
+
+      /* 90초 후 CTA 자동 노출 */
+      ctaTimer = setTimeout(() => {
+        cta.classList.add('show');
+      }, 90000);
+    }
+
+    function closeVideo(){
+      const overlay = document.getElementById('videoOverlay');
+      const frame = document.getElementById('videoFrame');
+      const cta = document.getElementById('spotifyCTA');
+
+      frame.src = '';
+      overlay.classList.remove('show');
+      cta.classList.remove('show');
+      clearTimeout(ctaTimer);
     }
   </script>
 
