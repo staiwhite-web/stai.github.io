@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>STAI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Tag -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11017984648"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,117 +11,170 @@
     gtag('config', 'AW-11017984648');
   </script>
 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STAI | Official Site</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <p class="signature">Prefer, Whatever, If you want it</p>
-  <h1>STAI</h1>
-</section>
+  <!-- HERO -->
+  <header class="hero">
+    <h1>STAI</h1>
+    <p>New releases, quiet emotions.</p>
+  </header>
 
-<!-- FEATURED TRACKS -->
-<section class="section">
-  <h2>New Releases</h2>
+  <!-- FEATURED TRACKS -->
+  <section class="section fade-section">
+    <h2>New Releases</h2>
 
-  <!-- TRACK 1 -->
-  <div class="track">
-    <img src="cover1.jpg" class="cover" onclick="openCover(this.src)" />
-    <div class="info">
-      <span class="badge">NEW RELEASE</span>
-      <span class="date">2026.01.05</span>
-      <h3>I’m Fine</h3>
-      <p>Pretending to be okay, even when everything feels empty.</p>
+    <!-- TRACK 1 -->
+    <div class="track">
+      <img src="cover1.jpg" class="cover" onclick="openCover(this.src)" />
 
-      <iframe
-        src="https://open.spotify.com/embed/track/XXXXXXXX"
-        width="100%" height="152" frameborder="0"
-        allow="autoplay; clipboard-write; encrypted-media;">
-      </iframe>
+      <div class="track-info">
+        <span class="badge">NEW RELEASE</span>
+        <span class="date">2026.01.05</span>
 
-      <a class="save-btn"
-         href="https://open.spotify.com/track/XXXXXXXX"
-         target="_blank"
-         onclick="gtag('event','spotify_save',{event_category:'music',event_label:'im_fine'})">
-        Save on Spotify
-      </a>
+        <h3>
+          <a href="https://open.spotify.com/track/XXXXXXXX"
+             target="_blank"
+             onclick="trackClick('ImFine')">
+            I’m Fine
+          </a>
+        </h3>
+
+        <p>Pretending to be okay, even when everything feels empty.</p>
+
+        <iframe
+          src="https://open.spotify.com/embed/track/XXXXXXXX"
+          width="100%" height="152" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media;">
+        </iframe>
+
+        <button class="save-btn" onclick="spotifySave('ImFine')">
+          Save on Spotify
+        </button>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- TRACK 2 -->
-  <div class="track">
-    <img src="cover2.jpg" class="cover" onclick="openCover(this.src)" />
-    <div class="info">
-      <span class="badge">NEW RELEASE</span>
-      <span class="date">2025.11.22</span>
-      <h3>I’ll Be Out</h3>
-      <p>Leaving quietly, after saying everything in my head.</p>
+  <!-- MUSIC VIDEOS -->
+  <section class="section fade-section">
+    <h2>Music Video</h2>
 
-      <iframe
-        src="https://open.spotify.com/embed/track/YYYYYYYY"
-        width="100%" height="152" frameborder="0"
-        allow="autoplay; clipboard-write; encrypted-media;">
-      </iframe>
-
-      <a class="save-btn"
-         href="https://open.spotify.com/track/YYYYYYYY"
-         target="_blank"
-         onclick="gtag('event','spotify_save',{event_category:'music',event_label:'ill_be_out'})">
-        Save on Spotify
-      </a>
+    <div class="video-grid">
+      <div class="video-item" onclick="openVideo('D0oATw0mrp0','ImFine_MV')">
+        <img src="mv1.jpg">
+        <div class="video-overlay">
+          <span>▶</span>
+          <p>I’m Fine</p>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- CONNECT -->
+  <section class="section center fade-section">
+    <h2>Listen Everywhere</h2>
+    <div class="links">
+      <a href="https://open.spotify.com/artist/4o8r9EwrxByJIaZ3qWRvpG" target="_blank">Spotify</a>
+      <a href="https://music.apple.com/kr/artist/stai/1693977237" target="_blank">Apple Music</a>
+      <a href="https://www.youtube.com/@staiwhite" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/staiwhite/" target="_blank">Instagram</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 STAI</p>
+  </footer>
+
+  <!-- FULLSCREEN COVER -->
+  <div id="coverOverlay" class="overlay" onclick="closeCover()">
+    <span class="close-btn">&times;</span>
+    <img id="overlayImage">
   </div>
-</section>
 
-<!-- MUSIC VIDEO -->
-<section class="section">
-  <h2>Music Video</h2>
-
-  <div class="mv">
-    <img src="cover1.jpg" class="mv-thumb" onclick="openMV()" />
-    <p class="mv-title">STAI – I’m Fine (Official MV)</p>
+  <!-- FULLSCREEN VIDEO -->
+  <div id="videoOverlay" class="overlay">
+    <span class="close-btn" onclick="closeVideo()">&times;</span>
+    <iframe id="videoFrame"
+      frameborder="0"
+      allow="autoplay; fullscreen; encrypted-media">
+    </iframe>
   </div>
-</section>
 
-<!-- FULLSCREEN COVER -->
-<div id="fullscreen" onclick="closeCover()">
-  <img id="fullscreen-img" />
-</div>
+  <!-- SPOTIFY CTA -->
+  <div id="spotifyCTA" class="spotify-cta">
+    <p>Like the song?</p>
+    <button onclick="spotifySave('ImFine_from_MV')">
+      Save on Spotify
+    </button>
+  </div>
 
-<!-- FULLSCREEN MV -->
-<div id="mv-fullscreen" onclick="closeMV()">
-  <iframe
-    id="mv-frame"
-    src=""
-    frameborder="0"
-    allow="autoplay; fullscreen"
-    allowfullscreen>
-  </iframe>
-</div>
+  <!-- SCRIPT -->
+  <script>
+    /* Fade animation */
+    const sections = document.querySelectorAll('.fade-section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => e.isIntersecting && e.target.classList.add('show'));
+    }, { threshold: 0.15 });
+    sections.forEach(s => observer.observe(s));
 
-<script>
-  function openCover(src) {
-    document.getElementById('fullscreen-img').src = src;
-    document.getElementById('fullscreen').style.display = 'flex';
-  }
+    /* Google events */
+    function trackClick(name){
+      gtag('event','track_click',{event_category:'engagement',event_label:name});
+    }
 
-  function closeCover() {
-    document.getElementById('fullscreen').style.display = 'none';
-  }
+    function spotifySave(name){
+      gtag('event','spotify_save',{event_category:'engagement',event_label:name});
+      window.open(
+        'https://open.spotify.com/artist/4o8r9EwrxByJIaZ3qWRvpG',
+        '_blank'
+      );
+    }
 
-  function openMV() {
-    document.getElementById('mv-frame').src =
-      "https://www.youtube.com/embed/D0oATw0mrp0?autoplay=1";
-    document.getElementById('mv-fullscreen').style.display = 'flex';
-  }
+    /* Cover fullscreen */
+    function openCover(src){
+      document.getElementById('overlayImage').src = src;
+      document.getElementById('coverOverlay').classList.add('show');
+    }
+    function closeCover(){
+      document.getElementById('coverOverlay').classList.remove('show');
+    }
 
-  function closeMV() {
-    document.getElementById('mv-frame').src = "";
-    document.getElementById('mv-fullscreen').style.display = 'none';
-  }
-</script>
+    /* Video fullscreen + CTA */
+    let ctaTimer;
+
+    function openVideo(id, name){
+      gtag('event','video_click',{event_category:'engagement',event_label:name});
+
+      const overlay = document.getElementById('videoOverlay');
+      const frame = document.getElementById('videoFrame');
+      const cta = document.getElementById('spotifyCTA');
+
+      cta.classList.remove('show');
+      frame.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+      overlay.classList.add('show');
+
+      /* 90초 후 CTA 자동 노출 */
+      ctaTimer = setTimeout(() => {
+        cta.classList.add('show');
+      }, 90000);
+    }
+
+    function closeVideo(){
+      const overlay = document.getElementById('videoOverlay');
+      const frame = document.getElementById('videoFrame');
+      const cta = document.getElementById('spotifyCTA');
+
+      frame.src = '';
+      overlay.classList.remove('show');
+      cta.classList.remove('show');
+      clearTimeout(ctaTimer);
+    }
+  </script>
 
 </body>
 </html>
