@@ -539,35 +539,69 @@ body { margin:0; font-family:'Helvetica Neue',sans-serif; background:#111; color
   .link-buttons{grid-template-columns:1fr; gap:24px;}
   .link-btn{padding:20px 18px;}
   .icon-svg{
-/* MERCH 중앙 정렬 보정 */
-.merch-grid {
-  justify-content: center; /* ⭐ 핵심 */
-}
+/* =================================================
+   LINKS + MERCH CENTER ALIGN OVERRIDE
+   (style.css 맨 아래에 그대로 붙여넣기)
+   ================================================= */
 
-.merch-item {
-  margin: 0 auto;
+/* ---------- LINKS ---------- */
+#links {
   text-align: center;
 }
-/* LINKS 버튼 중앙 정렬 보정 */
-.links {
+
+#links .links {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;   /* 전체 중앙 */
+  align-items: center;
+  gap: 16px;
 }
 
-.links .link-btn {
+#links .link-btn {
   display: flex;
   align-items: center;
-  justify-content: center; /* ⭐ 핵심 */
+  justify-content: center;   /* 버튼 내부 중앙 */
+  gap: 8px;
   text-align: center;
 }
+
+/* 모바일에서도 버튼 중앙 유지 */
 @media (max-width: 768px) {
-  .links .link-btn {
+  #links .link-btn {
     width: 100%;
     justify-content: center;
   }
 }
+
+/* ---------- MERCH ---------- */
+#merch {
+  text-align: center;
+}
+
+#merch .goods-grid {
+  display: grid;
+  justify-content: center;   /* 그리드 전체 중앙 */
+  justify-items: center;     /* 아이템 중앙 */
+  place-content: center;
+  gap: 40px;
+
+  /* auto-fit + 1fr로 늘어나는 현상 방지 */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 240px));
+}
+
+#merch .goods-item {
+  text-align: center;
+  margin: 0 auto;
+}
+
+#merch .goods-item img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* 모바일: 한 줄 정렬 */
 @media (max-width: 768px) {
-  .merch-grid {
+  #merch .goods-grid {
     grid-template-columns: 1fr;
   }
 }
