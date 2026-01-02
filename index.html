@@ -1,0 +1,27 @@
+<section class="section fade-section">
+  <h2>About</h2>
+  <p class="text">
+    STAI is a musician telling stories of separation, silence,
+    and the emotions that remain after love.
+  </p>
+</section>
+<script>
+  const sections = document.querySelectorAll('.fade-section');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
