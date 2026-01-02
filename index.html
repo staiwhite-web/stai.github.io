@@ -1,27 +1,103 @@
-<section class="section fade-section">
-  <h2>About</h2>
-  <p class="text">
-    STAI is a musician telling stories of separation, silence,
-    and the emotions that remain after love.
-  </p>
-</section>
-<script>
-  const sections = document.querySelectorAll('.fade-section');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STAI | Official</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    },
-    {
-      threshold: 0.15
-    }
-  );
+  <!-- HERO -->
+  <header class="hero">
+    <h1>STAI</h1>
+    <p>Music for the quiet nights</p>
+  </header>
 
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-</script>
+  <!-- ABOUT -->
+  <section class="section fade-section">
+    <h2>About</h2>
+    <p class="text">
+      STAI is a musician telling stories of separation, silence,
+      and the emotions that remain after love.
+    </p>
+  </section>
+
+  <!-- SPOTIFY -->
+  <section class="section fade-section">
+    <h2>Listen</h2>
+    <div class="spotify">
+      <!-- Spotify embed URL만 나중에 교체 -->
+      <iframe
+        src="https://open.spotify.com/embed/artist/XXXXXXXX"
+        width="100%"
+        height="380"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- MERCH -->
+  <section class="section fade-section">
+    <h2>Merch</h2>
+
+    <div class="merch-grid">
+      <div class="merch-item">
+        <img src="https://via.placeholder.com/400x400" alt="T-shirt">
+        <h3>STAI Logo T-Shirt</h3>
+        <p>Coming Soon</p>
+      </div>
+
+      <div class="merch-item">
+        <img src="https://via.placeholder.com/400x400" alt="Cap">
+        <h3>Black Cap</h3>
+        <p>Coming Soon</p>
+      </div>
+
+      <div class="merch-item">
+        <img src="https://via.placeholder.com/400x400" alt="Album">
+        <h3>Signed Album</h3>
+        <p>Limited</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECT -->
+  <section class="section center fade-section">
+    <h2>Connect</h2>
+    <div class="links">
+      <a href="https://instagram.com/staiwhite" target="_blank">Instagram</a>
+      <a href="https://youtube.com" target="_blank">YouTube</a>
+      <a href="https://open.spotify.com/" target="_blank">Spotify</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 STAI</p>
+  </footer>
+
+  <!-- SCROLL FADE SCRIPT -->
+  <script>
+    const sections = document.querySelectorAll('.fade-section');
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      },
+      {
+        threshold: 0.15
+      }
+    );
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>
