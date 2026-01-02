@@ -678,3 +678,7 @@ body { margin:0; font-family:'Helvetica Neue',sans-serif; background:#111; color
     padding: 12px 22px;
   }
 }
+/* CONTACT 위쪽 여백 늘리기 */
+#contact {
+  margin-top: 180px;
+}
