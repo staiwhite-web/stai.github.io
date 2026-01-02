@@ -527,3 +527,15 @@ body { margin:0; font-family:'Helvetica Neue',sans-serif; background:#111; color
   .link-buttons{grid-template-columns:1fr; gap:24px;}
   .link-btn{padding:20px 18px;}
   .icon-svg{
+/* 기본 상태: 숨김 + 약간 아래에서 시작 */
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 활성 상태: 화면 안으로 들어올 때 */
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
