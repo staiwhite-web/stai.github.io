@@ -724,10 +724,3 @@ body { margin:0; font-family:'Helvetica Neue',sans-serif; background:#111; color
     font-size: 10px;
   }
 }
-/* CONTACT 엔딩 크레딧 줄바꿈 강제 */
-.contact-sign {
-  display: block;   /* ⭐ 줄바꿈 핵심 */
-  width: 100%;
-  text-align: center;
-  margin-top: 64px;
-}
