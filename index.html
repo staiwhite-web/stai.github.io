@@ -13,123 +13,81 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>STAI | Official Artist Site</title>
+  <title>STAI | Official Site</title>
   <link rel="stylesheet" href="style.css" />
-
 </head>
+
 <body>
 
   <!-- HERO -->
   <header class="hero">
     <h1>STAI</h1>
-    <p>Music for the quiet nights</p>
+    <p>Two songs. Two moments. One feeling.</p>
   </header>
 
-  <!-- FEATURED TRACK -->
-  <section class="section featured fade-section">
-    <h2>Featured Track</h2>
+  <!-- FEATURED TRACKS -->
+  <section class="section fade-section">
+    <h2>Featured Tracks</h2>
 
-    <div class="featured-track">
-      <div class="featured-text">
+    <!-- TRACK 1 -->
+    <div class="track">
+      <img src="cover1.jpg" alt="I'm Fine Cover" class="cover" />
+
+      <div class="track-info">
         <h3>I’m Fine</h3>
         <p>
-          A song about pretending to be okay  
-          when everything is quietly falling apart.
+          Pretending to be okay,  
+          even when everything feels empty.
         </p>
 
-        <div class="featured-links">
-          <a
-            href="https://open.spotify.com/track/https://open.spotify.com/track/27vKEw4ADYSvGTxmRFv4EK?si=3be5ba4ab3444bc5"
-            target="_blank"
-            class="btn-primary">
-            Listen on Spotify
-          </a>
-
-          <a
-            href="https://music.apple.com/kr/album/https://music.apple.com/kr/song/im-fine-2025-remastered/1862778831"
-            target="_blank"
-            class="btn-secondary">
-            Apple Music
-          </a>
-        </div>
-      </div>
-
-      <!-- Spotify Embed (대표곡) -->
-      <div class="featured-player">
         <iframe
-          src="https://open.spotify.com/embed/track/https://open.spotify.com/track/27vKEw4ADYSvGTxmRFv4EK?si=bcda12253d33460a"
+          src="https://open.spotify.com/embed/track/XXXXXXXX"
           width="100%"
           height="152"
           frameborder="0"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
         </iframe>
+
+        <button class="save-btn" onclick="spotifySave('ImFine')">
+          Save on Spotify
+        </button>
       </div>
     </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section class="section fade-section">
-    <h2>About</h2>
-    <p class="text">
-      STAI is a Korean artist crafting emotional pop and R&B,
-      capturing the silence after love and the feelings that stay.
-    </p>
+    <!-- TRACK 2 -->
+    <div class="track">
+      <img src="cover2.jpg" alt="I'll Be Out Cover" class="cover" />
+
+      <div class="track-info">
+        <h3>I’ll Be Out</h3>
+        <p>
+          Leaving quietly,  
+          after saying everything in my head.
+        </p>
+
+        <iframe
+          src="https://open.spotify.com/embed/track/YYYYYYYY"
+          width="100%"
+          height="152"
+          frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+
+        <button class="save-btn" onclick="spotifySave('IllBeOut')">
+          Save on Spotify
+        </button>
+      </div>
+    </div>
   </section>
 
   <!-- LISTEN -->
-  <section class="section fade-section">
-    <h2>Listen</h2>
-
-    <div class="platform-links">
-      <a href="https://open.spotify.com/artist/4o8r9EwrxByJIaZ3qWRvpG?si=OpaUzOkNSUeoRdy7lkDxcw" target="_blank">Spotify</a>
-      <a href="https://music.apple.com/kr/artist/stai/1693977237" target="_blank">Apple Music</a>
-      <a href="https://www.youtube.com/@staiwhite" target="_blank">YouTube</a>
-    </div>
-
-    <div class="spotify">
-      <iframe
-        src="https://open.spotify.com/embed/artist/4o8r9EwrxByJIaZ3qWRvpG"
-        width="100%"
-        height="380"
-        frameborder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-      </iframe>
-    </div>
-  </section>
-
-  <!-- MERCH -->
-  <section class="section fade-section">
-    <h2>Merch</h2>
-
-    <div class="merch-grid">
-      <div class="merch-item">
-        <img src="https://via.placeholder.com/400x400" alt="STAI T-Shirt">
-        <h3>STAI Logo T-Shirt</h3>
-        <p>Coming Soon</p>
-      </div>
-
-      <div class="merch-item">
-        <img src="https://via.placeholder.com/400x400" alt="Cap">
-        <h3>Black Cap</h3>
-        <p>Limited</p>
-      </div>
-
-      <div class="merch-item">
-        <img src="https://via.placeholder.com/400x400" alt="Album">
-        <h3>Signed Album</h3>
-        <p>Coming Soon</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONNECT -->
   <section class="section center fade-section">
-    <h2>Connect</h2>
+    <h2>Listen Everywhere</h2>
     <div class="links">
-      <a href="https://www.instagram.com/staiwhite/" target="_blank">Instagram</a>
-      <a href="https://www.youtube.com/@staiwhite" target="_blank">YouTube</a>
       <a href="https://open.spotify.com/artist/4o8r9EwrxByJIaZ3qWRvpG" target="_blank">Spotify</a>
       <a href="https://music.apple.com/kr/artist/stai/1693977237" target="_blank">Apple Music</a>
+      <a href="https://www.youtube.com/@staiwhite" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/staiwhite/" target="_blank">Instagram</a>
     </div>
   </section>
 
@@ -137,22 +95,27 @@
     <p>© 2026 STAI</p>
   </footer>
 
-  <!-- SCROLL FADE SCRIPT -->
+  <!-- SCROLL FADE -->
   <script>
     const sections = document.querySelectorAll('.fade-section');
-
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
 
     sections.forEach(section => observer.observe(section));
+
+    // Spotify Save Conversion
+    function spotifySave(trackName) {
+      gtag('event', 'spotify_save', {
+        'event_category': 'engagement',
+        'event_label': trackName
+      });
+      window.open('https://open.spotify.com/artist/4o8r9EwrxByJIaZ3qWRvpG', '_blank');
+    }
   </script>
 
 </body>
