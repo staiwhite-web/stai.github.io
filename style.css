@@ -96,8 +96,24 @@ h2 {
   color: #000;
 }
 
-/* FULLSCREEN */
-#fullscreen {
+/* MV */
+.mv {
+  text-align: center;
+}
+
+.mv-thumb {
+  width: 480px;
+  cursor: pointer;
+}
+
+.mv-title {
+  margin-top: 16px;
+  opacity: 0.7;
+}
+
+/* FULLSCREEN IMAGE */
+#fullscreen,
+#mv-fullscreen {
   display: none;
   position: fixed;
   inset: 0;
@@ -112,6 +128,12 @@ h2 {
   max-height: 90%;
 }
 
+/* FULLSCREEN MV */
+#mv-fullscreen iframe {
+  width: 90%;
+  height: 90%;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   .track {
@@ -119,7 +141,8 @@ h2 {
     text-align: center;
   }
 
-  .cover {
+  .cover,
+  .mv-thumb {
     width: 260px;
   }
 }
