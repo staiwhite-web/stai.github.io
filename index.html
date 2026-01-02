@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11017984648"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-11017984648');
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>STAI | Official</title>
   <link rel="stylesheet" href="style.css" />
+
 </head>
 <body>
 
@@ -27,7 +39,6 @@
   <section class="section fade-section">
     <h2>Listen</h2>
     <div class="spotify">
-      <!-- Spotify embed URL만 나중에 교체 -->
       <iframe
         src="https://open.spotify.com/embed/artist/XXXXXXXX"
         width="100%"
@@ -56,48 +67,4 @@
       </div>
 
       <div class="merch-item">
-        <img src="https://via.placeholder.com/400x400" alt="Album">
-        <h3>Signed Album</h3>
-        <p>Limited</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONNECT -->
-  <section class="section center fade-section">
-    <h2>Connect</h2>
-    <div class="links">
-      <a href="https://instagram.com/staiwhite" target="_blank">Instagram</a>
-      <a href="https://youtube.com" target="_blank">YouTube</a>
-      <a href="https://open.spotify.com/" target="_blank">Spotify</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 STAI</p>
-  </footer>
-
-  <!-- SCROLL FADE SCRIPT -->
-  <script>
-    const sections = document.querySelectorAll('.fade-section');
-
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-          }
-        });
-      },
-      {
-        threshold: 0.15
-      }
-    );
-
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-  </script>
-
-</body>
-</html>
+        <img
