@@ -8,7 +8,6 @@
 body {
   background: #0b0b0b;
   color: #ffffff;
-  line-height: 1.6;
 }
 
 .hero {
@@ -22,7 +21,7 @@ body {
 
 .hero h1 {
   font-size: 4rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
 }
 
 .hero p {
@@ -52,16 +51,41 @@ body {
 .cover {
   width: 360px;
   max-width: 100%;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
 .track-info {
   flex: 1;
 }
 
+.badge {
+  display: inline-block;
+  background: #1db954;
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  margin-right: 0.8rem;
+}
+
+.date {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
 .track-info h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  margin: 1rem 0;
+}
+
+.track-info h3 a {
+  color: white;
+  text-decoration: none;
+}
+
+.track-info h3 a:hover {
+  opacity: 0.7;
 }
 
 .track-info p {
@@ -71,7 +95,7 @@ body {
 
 .save-btn {
   margin-top: 1.2rem;
-  padding: 0.9rem 2rem;
+  padding: 0.9rem 2.2rem;
   background: #1db954;
   color: #000;
   border: none;
